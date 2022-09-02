@@ -96,7 +96,6 @@ function App() {
 }
 
 const Device = ({ dev, ...others }) => {
-  console.log(dev);
   const [dialog, setDialog] = React.useState(false);
   const handleDialog = () => {
     setDialog(!dialog);
