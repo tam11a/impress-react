@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.js": "/impress-react/static/js/main.b84027f1.js",
+    "main.js": "/impress-react/static/js/main.deeb5c2b.js",
     "static/js/377.e5c3e8ca.chunk.js": "/impress-react/static/js/377.e5c3e8ca.chunk.js",
     "service-worker.js": "/impress-react/service-worker.js",
     "index.html": "/impress-react/index.html",
     "static/media/logo.svg": "/impress-react/static/media/logo.6bf747a503867042ebf8c1c50a51c082.svg",
-    "main.b84027f1.js.map": "/impress-react/static/js/main.b84027f1.js.map",
+    "main.deeb5c2b.js.map": "/impress-react/static/js/main.deeb5c2b.js.map",
     "377.e5c3e8ca.chunk.js.map": "/impress-react/static/js/377.e5c3e8ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.b84027f1.js"
+    "static/js/main.deeb5c2b.js"
   ]
 }
