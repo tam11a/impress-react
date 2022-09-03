@@ -18,7 +18,7 @@ import { AiOutlineClockCircle } from "react-icons/ai";
 import { MdClose, MdAdd, MdHeight } from "react-icons/md";
 import { IconWaveSawTool } from "@tabler/icons";
 import CInput from "./components/CInput";
-import svgURL from "./logo.svg";
+import svgURL from "./logo.png";
 import { useGetAllDevice } from "./query";
 import { GrMapLocation } from "react-icons/gr";
 
@@ -37,7 +37,7 @@ function App() {
     <Stack direction={"column"} alignItems={"center"} p={1}>
       <Box mt={3} />
       <img src={svgURL} alt="MeaWaCo" height={"100px"} />
-      <Typography
+      {/* <Typography
         variant={"h5"}
         sx={{
           "& span": {
@@ -46,10 +46,10 @@ function App() {
         }}
       >
         Impress<span>Web</span>
-      </Typography>
-      <Typography variant={"button"} sx={{ fontSize: "0.7rem" }}>
+      </Typography> */}
+      {/* <Typography variant={"button"} sx={{ fontSize: "0.7rem" }}>
         Measure States &amp; Registor
-      </Typography>
+      </Typography> */}
       <Box mt={3} />
       <Grid
         container
@@ -57,7 +57,7 @@ function App() {
         alignItem={"center"}
         justifyContent={"center"}
         sx={{
-          maxWidth: "1080px",
+          maxWidth: "1280px",
         }}
       >
         {devices?.map((dev, i) => (
@@ -140,23 +140,29 @@ const Device = ({ dev, ...others }) => {
                 fontSize: "1.5rem",
               }}
             >
-              Registor :
+              ESE Lightning Arrester Status :
             </Typography>
             <Typography
               sx={{
                 fontSize: "1.5rem",
               }}
             >
-              {dev.lastState?.registor || "-"}
+              {!dev.lastState &&
+              !dev.lastState.registor &&
+              dev.lastState.registor !== 0
+                ? "-"
+                : dev.lastState.registor >= 1 && dev.lastState.registor <= 11
+                ? "Okay"
+                : "Faulty"}
             </Typography>
-            <Typography
+            {/* <Typography
               sx={{
                 color: "primary.main",
                 fontSize: "1.5rem",
               }}
             >
               K
-            </Typography>
+            </Typography> */}
             <IconButton
               color={
                 !dev.lastState &&
