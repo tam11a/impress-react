@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.js": "/impress-react/static/js/main.92b0b684.js",
+    "main.js": "/impress-react/static/js/main.b1239dc9.js",
     "static/js/377.e5c3e8ca.chunk.js": "/impress-react/static/js/377.e5c3e8ca.chunk.js",
     "service-worker.js": "/impress-react/service-worker.js",
     "index.html": "/impress-react/index.html",
-    "main.92b0b684.js.map": "/impress-react/static/js/main.92b0b684.js.map",
+    "main.b1239dc9.js.map": "/impress-react/static/js/main.b1239dc9.js.map",
     "377.e5c3e8ca.chunk.js.map": "/impress-react/static/js/377.e5c3e8ca.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.92b0b684.js"
+    "static/js/main.b1239dc9.js"
   ]
 }
