@@ -129,7 +129,7 @@ const Device = ({ dev, ...others }) => {
               size={"small"}
               color={"primary"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               <IconWaveSawTool />
@@ -137,19 +137,19 @@ const Device = ({ dev, ...others }) => {
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               ESE Lightning Arrester Status :
             </Typography>
             <Typography
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               {!dev.lastState &&
-              !dev.lastState.registor &&
-              dev.lastState.registor !== 0
+              !dev.lastState?.registor &&
+              dev.lastState?.registor !== 0
                 ? "-"
                 : dev.lastState.registor >= 1 && dev.lastState.registor <= 11
                 ? "Okay"
@@ -158,7 +158,7 @@ const Device = ({ dev, ...others }) => {
             {/* <Typography
               sx={{
                 color: "primary.main",
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               K
@@ -166,10 +166,11 @@ const Device = ({ dev, ...others }) => {
             <IconButton
               color={
                 !dev.lastState &&
-                !dev.lastState.registor &&
-                dev.lastState.registor !== 0
+                !dev.lastState?.registor &&
+                dev.lastState?.registor !== 0
                   ? "default"
-                  : dev.lastState.registor >= 1 && dev.lastState.registor <= 11
+                  : dev.lastState?.registor >= 1 &&
+                    dev.lastState?.registor <= 11
                   ? "success"
                   : "error"
               }
@@ -187,7 +188,7 @@ const Device = ({ dev, ...others }) => {
               size={"small"}
               color={"primary"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               <BsThermometerHigh />
@@ -195,7 +196,7 @@ const Device = ({ dev, ...others }) => {
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               Temparature :
@@ -203,10 +204,10 @@ const Device = ({ dev, ...others }) => {
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
-              {dev.lastState.temp || "-"} &deg; C
+              {dev.lastState?.temp || "-"} &deg; C
             </Typography>
           </Stack>
           <Stack
@@ -219,7 +220,7 @@ const Device = ({ dev, ...others }) => {
               size={"small"}
               color={"secondary"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
               <MdHeight />
@@ -227,18 +228,18 @@ const Device = ({ dev, ...others }) => {
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
-              Altitude :
+              Latitude :
             </Typography>
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
-              {dev.lastState.alt || "-"} m
+              {dev.lastState?.lat || "-"}
             </Typography>
           </Stack>
           <Stack
@@ -251,7 +252,71 @@ const Device = ({ dev, ...others }) => {
               size={"small"}
               color={"secondary"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
+              }}
+            >
+              <MdHeight />
+            </IconButton>
+            <Typography
+              color={"ternary.main"}
+              sx={{
+                fontSize: "1.2rem",
+              }}
+            >
+              Longitude :
+            </Typography>
+            <Typography
+              color={"ternary.main"}
+              sx={{
+                fontSize: "1.2rem",
+              }}
+            >
+              {dev.lastState?.lng || "-"}
+            </Typography>
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            spacing={1}
+            color={"secondary.main"}
+          >
+            <IconButton
+              size={"small"}
+              color={"secondary"}
+              sx={{
+                fontSize: "1.2rem",
+              }}
+            >
+              <MdHeight />
+            </IconButton>
+            <Typography
+              color={"ternary.main"}
+              sx={{
+                fontSize: "1.2rem",
+              }}
+            >
+              Altitude :
+            </Typography>
+            <Typography
+              color={"ternary.main"}
+              sx={{
+                fontSize: "1.2rem",
+              }}
+            >
+              {dev.lastState?.alt || "-"} m
+            </Typography>
+          </Stack>
+          <Stack
+            direction={"row"}
+            alignItems={"center"}
+            spacing={1}
+            color={"secondary.main"}
+          >
+            <IconButton
+              size={"small"}
+              color={"secondary"}
+              sx={{
+                fontSize: "1.2rem",
               }}
             >
               <AiOutlineClockCircle />
@@ -259,10 +324,10 @@ const Device = ({ dev, ...others }) => {
             <Typography
               color={"ternary.main"}
               sx={{
-                fontSize: "1.5rem",
+                fontSize: "1.2rem",
               }}
             >
-              {moment(dev.lastState.createdAt).calendar()}
+              {moment(dev.lastState?.createdAt || dev.updatedAt).calendar()}
             </Typography>
           </Stack>
         </span>
@@ -276,7 +341,8 @@ const Device = ({ dev, ...others }) => {
           startIcon={<GrMapLocation />}
           component={"a"}
           target={"_blank"}
-          href={`http://maps.google.com/maps?q=loc:${dev.lastState.lat},${dev.lastState.lng}`}
+          href={`http://maps.google.com/maps?q=loc:${dev.lastState?.lat},${dev.lastState?.lng}`}
+          disabled={!(dev.lastState?.lat && dev.lastState?.lng)}
         >
           View Location
         </Button>
@@ -333,7 +399,7 @@ const Device = ({ dev, ...others }) => {
               <BsThermometerHigh />
             </IconButton>
             <Typography color={"ternary.main"}>
-              {dev.lastState.temp || "-"} &deg; C
+              {dev.lastState?.temp || "-"} &deg; C
             </Typography>
           </Stack>
           <Stack
@@ -347,7 +413,7 @@ const Device = ({ dev, ...others }) => {
               <AiOutlineClockCircle />
             </IconButton>
             <Typography color={"ternary.main"}>
-              {moment(dev.lastState.createdAt).calendar()}
+              {moment(dev.lastState?.createdAt || dev.updatedAt).calendar()}
             </Typography>
           </Stack>
           <Typography variant={"overline"} color={"primary.main"}>
